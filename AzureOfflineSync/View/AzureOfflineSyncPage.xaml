@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:AzureOfflineSync" x:Class="AzureOfflineSync.AzureOfflineSyncPage">
+  <StackLayout Orientation="Vertical" Padding="20">
+		<Button Text="Agregar Contactos" Command="{Binding GenerateContactsCommand}"></Button>
+		<Button Text="Limpiar" Command="{Binding PurgeCommand}"></Button>
+   		<ActivityIndicator IsRunning="{Binding IsBusy}" />
+		<ListView ItemsSource="{Binding Contacts}"
+              IsRefreshing="{Binding IsBusy}"
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding RefreshCommand}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding Name}"
+                    Detail="{Binding Version}"/>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+</ContentPage>
