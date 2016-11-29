@@ -15,6 +15,7 @@ namespace AzureOfflineSync
 		private IMobileServiceSyncTable<Contact> _table;
 		const string offlineDbPath = @"localstore.db";
 
+
 		public AzureClient()
 		{
 			_client = new MobileServiceClient("http://mod5sample.azurewebsites.net/");
